@@ -65,5 +65,7 @@ public class TowerScript : MonoBehaviour{
         foreach(GameObject o in blockedRooms){
             o.GetComponent<BlockedRoomScript>().ReCalculateResources(builtRooms.Count);
         }
+
+        print(blockedRooms.IndexOf(0).GetComponent<BlockedRoomScript>().getResourceCost())
     }
 }
