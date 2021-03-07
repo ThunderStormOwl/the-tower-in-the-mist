@@ -7,7 +7,7 @@ public class BlockedRoomScript : MonoBehaviour{
     TowerScript tower;
     
     public void Initialize(int builtRoomsLength, TowerScript t){
-        resourceCost = (long)Mathf.Pow(30, builtRoomsLength);
+        ReCalculateResources(builtRoomsLength);
         tower = t;
     }
 
@@ -15,5 +15,5 @@ public class BlockedRoomScript : MonoBehaviour{
 
     public long getResourceCost() => resourceCost;
 
-    public void ReCalculateResources(int builtRoomsLength) => resourceCost = (long)Mathf.Pow(30, builtRoomsLength);
+    public void ReCalculateResources(int builtRoomsLength) => resourceCost = (long)Mathf.Pow(30, 0.3f * builtRoomsLength);
 }
