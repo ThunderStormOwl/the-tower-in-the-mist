@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockedRoomScript : MonoBehaviour{
-    protected long resourceCost;
-    protected TowerScript tower;
+    long resourceCost;
+    TowerScript tower;
     
     public void Initialize(int builtRoomsLength, TowerScript t){
         resourceCost = (long)Mathf.Pow(30, builtRoomsLength);

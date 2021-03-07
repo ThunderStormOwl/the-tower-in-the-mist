@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TowerScript : MonoBehaviour{
     [SerializeField]
-    GameObject emptyRoomPrefab;
+    GameObject blockedRoomPrefab;
     [SerializeField]
     GameObject clearedRoomPrefab;
 
-    List<GameObject> blockedRooms = new List<GameObject>();
+    public List<GameObject> blockedRooms = new List<GameObject>();
     List<GameObject> builtRooms = new List<GameObject>();
     List<GameObject> roomsPool = new List<GameObject>();
     
@@ -43,7 +43,7 @@ public class TowerScript : MonoBehaviour{
                 curX += 2.1;
             pos.x = (float)curX;
 
-            newRoom = Instantiate(emptyRoomPrefab, pos, Quaternion.identity) as GameObject;
+            newRoom = Instantiate(blockedRoomPrefab, pos, Quaternion.identity) as GameObject;
             newRoom.GetComponent<BlockedRoomScript>().Initialize(2 + builtRooms.Count, this);
             blockedRooms.Add(newRoom);
 

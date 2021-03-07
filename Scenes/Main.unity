@@ -218,7 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdd409c2dea7b9419ab37c3fb6e32d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyRoomPrefab: {fileID: 5453766498835374307, guid: 31bd6190d765ea147ab592c4958e9fd7, type: 3}
+  blockedRoomPrefab: {fileID: 5453766498835374307, guid: 31bd6190d765ea147ab592c4958e9fd7, type: 3}
+  clearedRoomPrefab: {fileID: 7682867419604111338, guid: d46db3919d7e8fd4d9b55b4878de711c, type: 3}
 --- !u!1 &780514846
 GameObject:
   m_ObjectHideFlags: 0
