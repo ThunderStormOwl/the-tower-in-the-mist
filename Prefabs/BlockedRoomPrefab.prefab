@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167271991847024121}
   - component: {fileID: 2432129951615732477}
+  - component: {fileID: 4683968013571944308}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -114,6 +115,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4683968013571944308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854199532912756524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa9e433e113d0a4c960442e3b26f657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7309714236378889023
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +246,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4504626461760040235}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4683968013571944308}
+        m_TargetAssemblyTypeName: BasicRoomScript, Assembly-CSharp
+        m_MethodName: BuildMe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8783310765512746922
 GameObject:
   m_ObjectHideFlags: 0

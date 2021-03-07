@@ -1,16 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasicRoomScript : MonoBehaviour{
 
+    protected long resourceCost;
+    protected TowerScript tower;
     
-    
-    void Start(){
-        
+    public void Initialize(int builtRoomsLength, TowerScript t){
+
+        resourceCost = (long)Mathf.Pow(30, builtRoomsLength);
+        tower = t;
+
     }
 
-    void Update(){
-        
+    public void BuildMe(){
+        tower.BuildNewRoom(gameObject);
     }
+
+    public long getResourceCost(){
+        return resourceCost;
+    }
+
+    public void ReCalculateResources(int builtRoomsLength){
+        resourceCost = (long)Mathf.Pow(30, builtRoomsLength);
+    }
+
 }

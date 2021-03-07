@@ -8,17 +8,20 @@ public class TowerScript : MonoBehaviour{
     
     [SerializeField]
     GameObject emptyRoomPrefab;
+    [SerializeField]
+    GameObject clearedRoomPrefab;
+
+    List<GameObject> blockedRooms = new List<GameObject>();
+    List<GameObject> builtRooms = new List<GameObject>();
+    List<GameObject> roomsPool = new List<GameObject>();
     
     int maxRooms = 13 * 4;
     
     void Start(){
-
         SetUpTower();
-        
     }
 
     void SetUpTower(){
-
         int counter = 0;
 
         double curX = 1.2;
@@ -44,6 +47,8 @@ public class TowerScript : MonoBehaviour{
             pos.x = (float)curX;
 
             newRoom = Instantiate(emptyRoomPrefab, pos, Quaternion.identity) as GameObject;
+            newRoom.GetComponent<BasicRoomScript>().Initialize(2 + builtRooms.Count, this);
+            blockedRooms.Add(newRoom);
 
             counter += 1;
         }
@@ -51,5 +56,18 @@ public class TowerScript : MonoBehaviour{
 
     void Update(){
         
+    }
+
+    public void BuildNewRoom(GameObject room){
+        Vector3 newPos = new Vector3(-1000, 0, 0);
+        GameObject newRoom = Instantiate(clearedRoomPrefab, room.transform.position, Quaternion.identity) as GameObject;
+
+        builtRooms.Add(newRoom);
+        blockedRooms.Remove(room);
+        room.transform.position = newPos;
+
+        foreach(GameObject o in blockedRooms){
+            o.GetComponent<BasicRoomScript>().ReCalculateResources(builtRooms.Count);
+        }
     }
 }
