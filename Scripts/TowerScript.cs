@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class TowerScript : MonoBehaviour{
-    
     [SerializeField]
     GameObject emptyRoomPrefab;
     [SerializeField]
@@ -47,7 +44,7 @@ public class TowerScript : MonoBehaviour{
             pos.x = (float)curX;
 
             newRoom = Instantiate(emptyRoomPrefab, pos, Quaternion.identity) as GameObject;
-            newRoom.GetComponent<BasicRoomScript>().Initialize(2 + builtRooms.Count, this);
+            newRoom.GetComponent<BlockedRoomScript>().Initialize(2 + builtRooms.Count, this);
             blockedRooms.Add(newRoom);
 
             counter += 1;
@@ -59,15 +56,14 @@ public class TowerScript : MonoBehaviour{
     }
 
     public void BuildNewRoom(GameObject room){
-        Vector3 newPos = new Vector3(-1000, 0, 0);
         GameObject newRoom = Instantiate(clearedRoomPrefab, room.transform.position, Quaternion.identity) as GameObject;
 
         builtRooms.Add(newRoom);
         blockedRooms.Remove(room);
-        room.transform.position = newPos;
+        Destroy(room);
 
         foreach(GameObject o in blockedRooms){
-            o.GetComponent<BasicRoomScript>().ReCalculateResources(builtRooms.Count);
+            o.GetComponent<BlockedRoomScript>().ReCalculateResources(builtRooms.Count);
         }
     }
 }

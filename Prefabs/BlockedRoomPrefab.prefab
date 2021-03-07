@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2273980897496634766}
   m_Layer: 0
-  m_Name: EmptyRoomPrefab
+  m_Name: BlockedRoomPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167271991847024121}
   - component: {fileID: 2432129951615732477}
-  - component: {fileID: 4683968013571944308}
+  - component: {fileID: 6359210127284288283}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4683968013571944308
+--- !u!114 &6359210127284288283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6854199532912756524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa9e433e113d0a4c960442e3b26f657, type: 3}
+  m_Script: {fileID: 11500000, guid: 123fb558999831e46b295fecd291bc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7309714236378889023
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4683968013571944308}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BasicRoomScript, Assembly-CSharp
         m_MethodName: BuildMe
         m_Mode: 1
