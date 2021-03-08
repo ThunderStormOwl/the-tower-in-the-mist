@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BlockedRoomScript : MonoBehaviour{
     long resourceCost;
@@ -25,6 +24,7 @@ public class BlockedRoomScript : MonoBehaviour{
     public void ShowUI(){
         clearButton.SetActive(true);
         invisibleButton.SetActive(false);
+        tower.RoomUIOn(gameObject);
     }
     public void HideUI(){
         clearButton.SetActive(false);

@@ -8,6 +8,8 @@ public class TowerScript : MonoBehaviour{
     [SerializeField]
     GameObject clearedRoomPrefab;
 
+    GameObject roomWithUIOn;
+
     public List<GameObject> blockedRooms = new List<GameObject>();
     List<GameObject> builtRooms = new List<GameObject>();
     List<GameObject> roomsPool = new List<GameObject>();
@@ -78,5 +80,18 @@ public class TowerScript : MonoBehaviour{
         }
 
         //print(blockedRooms[0].GetComponent<BlockedRoomScript>().getResourceCost());
+    }
+
+    public void RoomUIOn(GameObject room){
+        bool isBlocked = blockedRooms.Contains(room);
+
+        if(room != roomWithUIOn && roomWithUIOn != null){
+            if(isBlocked)
+                room.GetComponent<BlockedRoomScript>().HideUI();
+            else
+                room.GetComponent<RoomClass>().HideUI();
+        }
+
+        roomWithUIOn = room;
     }
 }
