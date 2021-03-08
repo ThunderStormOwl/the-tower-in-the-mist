@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlockedRoomScript : MonoBehaviour{
     long resourceCost;
     TowerScript tower;
+    [SerializeField]
+    GameObject clearButton;
+    [SerializeField]
+    GameObject invisibleButton;
     
     public void Initialize(int builtRoomsLength, TowerScript t){
         ReCalculateResources(builtRoomsLength);
@@ -16,4 +21,13 @@ public class BlockedRoomScript : MonoBehaviour{
     public long getResourceCost() => resourceCost;
 
     public void ReCalculateResources(int builtRoomsLength) => resourceCost = (long)Mathf.Pow(30, 0.3f * builtRoomsLength);
+
+    public void ShowUI(){
+        clearButton.SetActive(true);
+        invisibleButton.SetActive(false);
+    }
+    public void HideUI(){
+        clearButton.SetActive(false);
+        invisibleButton.SetActive(true);
+    }
 }

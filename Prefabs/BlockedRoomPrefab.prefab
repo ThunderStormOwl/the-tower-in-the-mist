@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123fb558999831e46b295fecd291bc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearButton: {fileID: 7309714236378889023}
+  invisibleButton: {fileID: 7120965648199238643}
 --- !u!1 &6854199532912756524
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,8 +142,8 @@ GameObject:
   - component: {fileID: 244946240917396071}
   - component: {fileID: 7369243460277734396}
   m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
+  m_Name: Invisible Button
+  m_TagString: Invisible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,10 +245,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 244946240917396071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2486299943580661021}
+        m_TargetAssemblyTypeName: BlockedRoomScript, Assembly-CSharp
+        m_MethodName: ShowUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7309714236378889023
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +274,7 @@ GameObject:
   - component: {fileID: 4504626461760040235}
   - component: {fileID: 3732536130899607908}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Clear Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
