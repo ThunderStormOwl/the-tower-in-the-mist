@@ -70,8 +70,11 @@ public class TowerScript : MonoBehaviour{
 
     public void BuildNewRoom(GameObject room){
         GameObject newRoom = Instantiate(clearedRoomPrefab, room.transform.position, Quaternion.identity) as GameObject;
+        
+        if(room == roomWithUIOn)
+            roomWithUIOn = newRoom;
 
-        builtRooms.Add(newRoom);
+         builtRooms.Add(newRoom);
         blockedRooms.Remove(room);
         Destroy(room);
 
@@ -87,9 +90,9 @@ public class TowerScript : MonoBehaviour{
 
         if(room != roomWithUIOn && roomWithUIOn != null){
             if(isBlocked)
-                room.GetComponent<BlockedRoomScript>().HideUI();
+                roomWithUIOn.GetComponent<BlockedRoomScript>().HideUI();
             else
-                room.GetComponent<RoomClass>().HideUI();
+                roomWithUIOn.GetComponent<RoomClass>().HideUI();
         }
 
         roomWithUIOn = room;
