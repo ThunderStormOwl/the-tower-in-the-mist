@@ -68,7 +68,7 @@ public class TowerScript : MonoBehaviour{
         
     }
 
-    public void BuildNewRoom(GameObject room){
+    public void BuildNewRoom(GameObject room){//change the name of this method
         GameObject newRoom = Instantiate(clearedRoomPrefab, room.transform.position, Quaternion.identity) as GameObject;
         
         if(room == roomWithUIOn)
