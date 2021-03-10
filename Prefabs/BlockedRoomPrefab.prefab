@@ -383,7 +383,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2486299943580661021}
         m_TargetAssemblyTypeName: BlockedRoomScript, Assembly-CSharp
-        m_MethodName: BuildMe
+        m_MethodName: ClearMe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
