@@ -7,7 +7,7 @@ public class TowerScript : MonoBehaviour{
     GameObject blockedRoomPrefab;
     [SerializeField]
     GameObject clearedRoomPrefab;
-
+    
     GameObject roomWithUIOn;
 
     public List<GameObject> blockedRooms = new List<GameObject>();
@@ -70,25 +70,26 @@ public class TowerScript : MonoBehaviour{
 
     public void ClearNewRoom(GameObject room){
         GameObject newRoom = Instantiate(clearedRoomPrefab, room.transform.position, Quaternion.identity) as GameObject;
-        
-        if(room == roomWithUIOn)
-            roomWithUIOn = newRoom;
+        newRoom.transform.name = room.transform.name;
+        newRoom.transform.parent = room.transform.parent;
+        newRoom.GetComponent<RoomClass>().Initialize(this);
+        room.GetComponent<BlockedRoomScript>().HideUI();
 
-         builtRooms.Add(newRoom);
+        builtRooms.Add(newRoom);
         blockedRooms.Remove(room);
         Destroy(room);
 
         foreach(GameObject o in blockedRooms){
             o.GetComponent<BlockedRoomScript>().ReCalculateResources(builtRooms.Count);
         }
-
-        //print(blockedRooms[0].GetComponent<BlockedRoomScript>().getResourceCost());
     }
 
     public void RoomUIOn(GameObject room){
-        bool isBlocked = blockedRooms.Contains(room);
 
         if(room != roomWithUIOn && roomWithUIOn != null){
+
+            bool isBlocked = blockedRooms.Contains(roomWithUIOn);
+
             if(isBlocked)
                 roomWithUIOn.GetComponent<BlockedRoomScript>().HideUI();
             else

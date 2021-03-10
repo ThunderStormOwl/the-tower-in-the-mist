@@ -7,17 +7,17 @@ public class RoomClass : MonoBehaviour{
     GameObject buildButton;
     [SerializeField]
     GameObject invisibleButton;
-    void Start(){
-        
-    }
 
-    void Update(){
-        
+    TowerScript tower;
+
+    public void Initialize(TowerScript t){
+        tower = t;
     }
 
     public void ShowUI(){
         buildButton.SetActive(true);
         invisibleButton.SetActive(false);
+        tower.RoomUIOn(gameObject);
     }
     public void HideUI(){
         buildButton.SetActive(false);
