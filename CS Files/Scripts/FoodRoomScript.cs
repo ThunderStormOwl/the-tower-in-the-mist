@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FoodRoomScript : RoomClass{
     void Start(){
-        
     }
     void Update(){ 
     }

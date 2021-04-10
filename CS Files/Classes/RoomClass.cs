@@ -8,7 +8,7 @@ public class RoomClass : MonoBehaviour{
     [SerializeField]
     GameObject invisibleButton;
 
-    TowerScript tower;
+    protected TowerScript tower;
 
     public void Initialize(TowerScript t){
         tower = t;
