@@ -7,10 +7,16 @@ public class TowerScript : MonoBehaviour{
     GameObject blockedRoomPrefab;
     [SerializeField]
     GameObject clearedRoomPrefab;
+    [SerializeField]
+    GameObject powerRoomPrefab;
+    [SerializeField]
+    GameObject waterRoomPrefab;
+    [SerializeField]
+    GameObject foodRoomPrefab;
     
     GameObject roomWithUIOn;
 
-    public List<GameObject> blockedRooms = new List<GameObject>();
+    List<GameObject> blockedRooms = new List<GameObject>();
     List<GameObject> builtRooms = new List<GameObject>();
     List<GameObject> roomsPool = new List<GameObject>();
     
@@ -68,16 +74,25 @@ public class TowerScript : MonoBehaviour{
         
     }
 
-    public void ClearNewRoom(GameObject room){
-        GameObject newRoom = Instantiate(clearedRoomPrefab, room.transform.position, Quaternion.identity) as GameObject;
-        newRoom.transform.name = room.transform.name;
-        newRoom.transform.parent = room.transform.parent;
+    public void BuildNewRoom(int type, GameObject originRoom){
+        GameObject newRoom = null;
+        switch(type){
+            case 0: newRoom = Instantiate(clearedRoomPrefab, originRoom.transform.position, Quaternion.identity) as GameObject; break;
+            case 1: newRoom = Instantiate(powerRoomPrefab, originRoom.transform.position, Quaternion.identity) as GameObject; break;
+            case 2: newRoom = Instantiate(waterRoomPrefab, originRoom.transform.position, Quaternion.identity) as GameObject; break;
+            case 3: newRoom = Instantiate(foodRoomPrefab, originRoom.transform.position, Quaternion.identity) as GameObject; break;
+        }
+        newRoom.transform.name = originRoom.transform.name;
+        newRoom.transform.parent = originRoom.transform.parent;
         newRoom.GetComponent<RoomClass>().Initialize(this);
-        room.GetComponent<BlockedRoomScript>().HideUI();
+        if(type == 0)
+            originRoom.GetComponent<BlockedRoomScript>().HideUI();
+        else
+            originRoom.GetComponent<RoomClass>().HideUI();
 
         builtRooms.Add(newRoom);
-        blockedRooms.Remove(room);
-        Destroy(room);
+        blockedRooms.Remove(originRoom);
+        Destroy(originRoom);
 
         foreach(GameObject o in blockedRooms){
             o.GetComponent<BlockedRoomScript>().ReCalculateResources(builtRooms.Count);

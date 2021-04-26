@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomClass : MonoBehaviour{
     [SerializeField]
-    GameObject buildButton;
+    GameObject myUI;
     [SerializeField]
     GameObject invisibleButton;
 
@@ -15,12 +15,12 @@ public class RoomClass : MonoBehaviour{
     }
 
     public void ShowUI(){
-        buildButton.SetActive(true);
+        myUI.SetActive(true);
         invisibleButton.SetActive(false);
         tower.RoomUIOn(gameObject);
     }
     public void HideUI(){
-        buildButton.SetActive(false);
+        myUI.SetActive(false);
         invisibleButton.SetActive(true);
     }
 }

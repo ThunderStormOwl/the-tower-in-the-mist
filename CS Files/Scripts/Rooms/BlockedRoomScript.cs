@@ -15,7 +15,7 @@ public class BlockedRoomScript : MonoBehaviour{
         tower = t;
     }
 
-    public void ClearMe() => tower.ClearNewRoom(gameObject);
+    public void ClearMe() => tower.BuildNewRoom(0, gameObject);
 
     public long getResourceCost() => resourceCost;
 
