@@ -6,7 +6,7 @@ public class BlockedRoomScript : MonoBehaviour{
     long resourceCost;
     TowerScript tower;
     [SerializeField]
-    GameObject clearButton;
+    GameObject myUI;
     [SerializeField]
     GameObject invisibleButton;
     
@@ -22,12 +22,12 @@ public class BlockedRoomScript : MonoBehaviour{
     public void ReCalculateResources(int builtRoomsLength) => resourceCost = (long)Mathf.Pow(30, 0.3f * builtRoomsLength);
 
     public void ShowUI(){
-        clearButton.SetActive(true);
+        myUI.SetActive(true);
         invisibleButton.SetActive(false);
         tower.RoomUIOn(gameObject);
     }
     public void HideUI(){
-        clearButton.SetActive(false);
+        myUI.SetActive(false);
         invisibleButton.SetActive(true);
     }
 }
